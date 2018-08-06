@@ -1,0 +1,17 @@
+﻿<form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+    <p>Введите имя пользователя и пароль</p>
+    <div *ngIf="errorMessage != null">
+        {{errorMessage}}
+    </div>
+    <div>
+        <label>Пользователь</label>
+        <input name="username" [(ngModel)]="username" required/>
+    </div>
+    <div>
+        <label>Пароль</label>
+        <input type="password" name="password" [(ngModel)]="password" required/>
+    </div>
+    <div>
+        <button type="submit">Войти</button>
+    </div>
+</form>
