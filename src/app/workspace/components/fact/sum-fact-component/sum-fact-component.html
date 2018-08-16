@@ -1,0 +1,37 @@
+<div>
+    <form novalidate #form="ngForm" (ngSubmit)="load(form)">
+        <div *ngIf="errorMessage != null">
+            {{errorMessage}}
+        </div>
+        <div>
+            <label>Начало</label>
+            <input name="start" type="date" required [ngModel]="formParam.start | date:'yyyy-MM-dd'"
+                   (ngModelChange)="setDatetime(formParam, 'start', $event);"/>
+        </div>
+        <div>
+            <label>Конец</label>
+            <input name="end" type="date" required [ngModel]="formParam.end | date:'yyyy-MM-dd'"
+                   (ngModelChange)="setDatetime(formParam, 'end', $event);"/>
+        </div>
+        <div>
+            <button type="submit">Загрузить</button>
+        </div>
+    </form>
+
+</div>
+<div class="flex-container">
+    <div class="flex-item-1">
+        <at-grid
+            [data]="groupObjects"
+            [metaData]="gridMetaData"
+            [staticMode]="true"
+            [currentPage]="0"
+            (onSelect)="selectGroupObject($event)"
+        ></at-grid>
+    </div>
+    <div class="flex-item-1">
+        <app-fact-detail-component
+            [groupObject]="selectedGroupObject"
+        ></app-fact-detail-component>
+    </div>
+</div>

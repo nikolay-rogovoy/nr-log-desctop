@@ -1,4 +1,5 @@
 <div>
+    <a *ngIf="authenticated" [routerLink]="'/sum_fact'">Факты за период</a>
     <button *ngIf="authenticated" type="button" (click)="logOut()">logout</button>
 </div>
 <div>

@@ -11,4 +11,6 @@ export interface IFact extends IEntity {
     name: string;
     /***/
     factattrib: IFactattrib[];
+    /***/
+    duration: number;
 }

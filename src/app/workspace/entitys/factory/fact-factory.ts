@@ -12,6 +12,8 @@ export class FactFactory implements IFactory {
             name: source['name'] ? source['name'] : null,
             start: source['start'] ? new Date(source['start']) : null,
             end: source['end'] ? new Date(source['end']) : null,
+            // todo get
+            duration: source['start'] && source['end'] ? new Date(source['end']).getTime() - new Date(source['start']).getTime() : null,
             factattrib: source['factattrib'] ? source['factattrib'].map(x => new FactattribFactory().create(x)) : []
         };
     }
